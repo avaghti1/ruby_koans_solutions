@@ -65,6 +65,7 @@ def score(dice)
       score += count * 50
     end
   end
+
   score
 end
 
