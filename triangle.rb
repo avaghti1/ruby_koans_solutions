@@ -14,9 +14,12 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  raise TriangleError, "No side's length can be 0 or less" if (a <= 0 || b <= 0 || c <=0)
+  raise TriangleError, "The sum of two sides cannot be less than or equal to the other side" if ((a + b <= c) || (b + c <= a) || (a + c <= b))
+
   if (a == b && a == c)
     return :equilateral
-  elsif (a == b ^ a == c)
+  elsif ((a == b) ^ (a == c) ^ (b == c))
     return :isosceles
   else
     return :scalene
