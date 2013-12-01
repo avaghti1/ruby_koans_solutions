@@ -40,19 +40,10 @@ def score(dice)
 
   roll_count.each do |face, count|
     if count >= 3
-      case face
-        when 1
-          score += 1000
-        when 2
-          score += 100 * 2
-        when 3
-          score += 100 * 3
-        when 4
-          score += 100 * 4
-        when 5
-          score += 100 * 5
-        when 6
-          score += 100 * 6
+      if face == 1
+        score += 1000
+      else
+        score += 100 * face
       end
       roll_count[face] -= 3 # Prevents duplicate counting below
     end
